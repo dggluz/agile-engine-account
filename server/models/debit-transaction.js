@@ -2,7 +2,7 @@ const { Transaction } = require('./transaction');
 
 class DebitTransaction extends Transaction {
 	getType () {
-		return 'DEBIT';
+		return 'debit';
 	}
 }
 
