@@ -1,3 +1,4 @@
+const { NotEnoughMoneyError } = require('./not-enough-money-error');
 // TODO: transactions history
 
 class Account {
@@ -16,8 +17,8 @@ class Account {
 	}
 
 	debit (moneyToDebit) {
-		if (this.getMoney() < moneyToCredit) {
-			throw new NotEnoughtMoneyError(this.getMoney(), moneyToCredit);
+		if (this.getMoney() < moneyToDebit) {
+			throw new NotEnoughMoneyError(this.getMoney(), moneyToDebit);
 		}
 		this._money = this.getMoney() - moneyToDebit;
 		return this;

@@ -27,6 +27,12 @@ class BadRequestError extends HttpError {
 	}
 }
 
+class ConflictError extends HttpError {
+	constructor (message) {
+		super(409, message);
+	}
+}
+
 class InternalServerError extends HttpError {
 	constructor(err) {
 		super(500, 'Internal server error');
@@ -38,4 +44,5 @@ module.exports.HttpResponse = HttpResponse;
 module.exports.HttpSuccessResponse = HttpSuccessResponse;
 module.exports.HttpError = HttpError;
 module.exports.BadRequestError = BadRequestError;
+module.exports.ConflictError = ConflictError;
 module.exports.InternalServerError = InternalServerError;
