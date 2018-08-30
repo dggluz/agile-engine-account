@@ -14,6 +14,11 @@ const startServer = () => {
 		version
 	});
 
+	server.use((_req, res,next) => {
+		res.header('Access-Control-Allow-Origin', '*');
+		res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+		return next();
+	});
 	server.use(plugins.acceptParser(server.acceptable));
 	server.use(plugins.queryParser());
 	server.use(plugins.bodyParser());
