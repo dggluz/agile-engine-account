@@ -6,7 +6,7 @@ const getTransactionsCtrl = account =>
 		Promise
 			.resolve(req)
 			.then(_ => new HttpSuccessResponse({
-				money: account
+				transactions: account
 					.getTransactions()
 					.map(aTransaction => ({
 						timestamp: aTransaction.getDate().getTime(),

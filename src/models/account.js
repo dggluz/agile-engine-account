@@ -1,5 +1,6 @@
 const { NotEnoughMoneyError } = require('./not-enough-money-error');
-// TODO: transactions history
+const { CreditTransaction } = require('./credit-transaction');
+const { DebitTransaction } = require('./debit-transaction');
 
 class Account {
 	constructor (initialMoneyQty) {
@@ -17,6 +18,7 @@ class Account {
 
 	credit (moneyToCredit) {
 		this._money = this.getMoney() + moneyToCredit;
+		this._addTransaction(new CreditTransaction(moneyToCredit, this.getMoney()));
 		return this;
 	}
 
@@ -25,6 +27,12 @@ class Account {
 			throw new NotEnoughMoneyError(this.getMoney(), moneyToDebit);
 		}
 		this._money = this.getMoney() - moneyToDebit;
+		this._addTransaction(new DebitTransaction(moneyToDebit, this.getMoney()));
+		return this;
+	}
+
+	_addTransaction (transaction) {
+		this._transactions.push(transaction);
 		return this;
 	}
 }

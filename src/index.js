@@ -6,8 +6,6 @@ const { creditMoneyCtrl } = require('./controllers/credit-money.controller');
 const { debitMoneyCtrl } = require('./controllers/debit-money.controller');
 const { Account } = require('./models/account');
 
-// TODO: GET /api/transactions
-
 const server = createServer();
 
 // TODO: softcode initial money qty
