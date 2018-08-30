@@ -1,6 +1,6 @@
 class NotEnoughMoneyError extends Error {
-	constructor (availableMoney, moneyToCredit) {
-		super(`Can not credit $${moneyToCredit} (only $${availableMoney} avialable)`);
+	constructor () {
+		super(`Can not perform credit because there is not enough available money.`);
 	}
 }
 

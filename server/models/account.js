@@ -4,7 +4,7 @@ const { DebitTransaction } = require('./debit-transaction');
 
 class Account {
 	constructor (initialMoneyQty) {
-		this._money = initialMoneyQty;
+		this._setMoney(initialMoneyQty);
 		this._transactions = [];
 	}
 
@@ -17,17 +17,26 @@ class Account {
 	}
 
 	credit (moneyToCredit) {
-		this._money = this.getMoney() + moneyToCredit;
-		this._addTransaction(new CreditTransaction(moneyToCredit, this.getMoney()));
+		this
+			._setMoney(this.getMoney() + moneyToCredit)
+			._addTransaction(new CreditTransaction(moneyToCredit, this.getMoney()))
+		;
 		return this;
 	}
 
 	debit (moneyToDebit) {
-		if (this.getMoney() < moneyToDebit) {
-			throw new NotEnoughMoneyError(this.getMoney(), moneyToDebit);
+		this
+			._setMoney(this.getMoney() - moneyToDebit)
+			._addTransaction(new DebitTransaction(moneyToDebit, this.getMoney()))
+		;
+		return this;
+	}
+
+	_setMoney (money) {
+		if (money < 0) {
+			throw new NotEnoughMoneyError();
 		}
-		this._money = this.getMoney() - moneyToDebit;
-		this._addTransaction(new DebitTransaction(moneyToDebit, this.getMoney()));
+		this._money = money;
 		return this;
 	}
 
