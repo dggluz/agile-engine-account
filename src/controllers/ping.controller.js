@@ -1,9 +1,10 @@
-const { createEndpoint } = require('../server-utils/create-endoint');
+const { createEndpoint } = require('../server-utils/create-endpoint');
 const { HttpSuccessResponse } = require('../server-utils/http-response');
 
-const pingCtrl = createEndpoint(_ =>
+const pingCtrl = createEndpoint(req =>
 	Promise
-		.resolve(new HttpSuccessResponse({
+		.resolve(req)
+		.then(_ => new HttpSuccessResponse({
 			connection: true
 		}))
 );

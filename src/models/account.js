@@ -11,6 +11,10 @@ class Account {
 		return this._money;
 	}
 
+	getTransactions () {
+		return this._transactions;
+	}
+
 	credit (moneyToCredit) {
 		this._money = this.getMoney() + moneyToCredit;
 		return this;

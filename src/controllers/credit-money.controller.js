@@ -1,4 +1,4 @@
-const { createEndpoint } = require('../server-utils/create-endoint');
+const { createEndpoint } = require('../server-utils/create-endpoint');
 const { HttpSuccessResponse } = require('../server-utils/http-response');
 const { checkBody } = require('../middlewares/check-body.middleware');
 const { objectOfLike } = require('../validators/object-of-like');
