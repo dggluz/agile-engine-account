@@ -5,11 +5,11 @@ const { getTransactionsCtrl } = require('./controllers/get-transactions.controll
 const { creditMoneyCtrl } = require('./controllers/credit-money.controller');
 const { debitMoneyCtrl } = require('./controllers/debit-money.controller');
 const { Account } = require('./models/account');
+const { numberLike } = require('./validators/number-like');
 
 const server = createServer();
 
-// TODO: softcode initial money qty
-const account = new Account(1000);
+const account = new Account(numberLike(process.argv[2]));
 
 server.get('/api/ping', pingCtrl);
 server.get('/api/money', getMoneyCtrl(account));
