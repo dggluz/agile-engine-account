@@ -19,5 +19,23 @@ class HttpSuccessResponse extends HttpResponse {
 	}
 }
 
+class HttpError extends HttpResponse {}
+
+class BadRequestError extends HttpError {
+	constructor (message) {
+		super(400, message);
+	}
+}
+
+class InternalServerError extends HttpError {
+	constructor(err) {
+		super(500, 'Internal server error');
+		console.error(err);
+	}
+}
+
 module.exports.HttpResponse = HttpResponse;
 module.exports.HttpSuccessResponse = HttpSuccessResponse;
+module.exports.HttpError = HttpError;
+module.exports.BadRequestError = BadRequestError;
+module.exports.InternalServerError = InternalServerError;

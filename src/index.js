@@ -1,6 +1,7 @@
 const { createServer } = require('./server-utils/start-server');
 const { pingCtrl } = require('./controllers/ping.controller');
 const { getMoneyCtrl } = require('./controllers/get-money.controller');
+const { creditMoneyCtrl } = require('./controllers/credit-money.controller');
 const { Account } = require('./models/account');
 
 // TODO: POST /api/debit
@@ -15,3 +16,4 @@ const account = new Account(1000);
 
 server.get('/ping', pingCtrl);
 server.get('/money', getMoneyCtrl(account));
+server.post('/credit', creditMoneyCtrl(account));
