@@ -1,0 +1,15 @@
+{
+  "name": "agile-engine-transactions",
+  "version": "1.0.0",
+  "description": "Code challenge",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest"
+  },
+  "author": "dggluz@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "restify": "^7.2.1"
+  }
+}
