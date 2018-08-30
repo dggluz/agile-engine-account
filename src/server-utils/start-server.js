@@ -1,6 +1,6 @@
 const { createServer, plugins } = require('restify');
 
-module.exports.startServer = () => {
+const startServer = () => {
 	// TODO: softcode
 	const name = 'agile-engine-transaction';
 	const version = 'v0.0.0';
@@ -25,3 +25,5 @@ module.exports.startServer = () => {
 
 	return server;
 };
+
+module.exports.createServer = startServer;
