@@ -1,5 +1,11 @@
 # Code Challenge for Agile Engine
 
+## Instalation
+
+```bash
+npm install
+```
+
 ## Run server
 
 Just call `npm start` passing the initial money quantity as a parameter:

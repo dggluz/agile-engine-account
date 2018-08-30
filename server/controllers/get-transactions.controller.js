@@ -9,11 +9,10 @@ const getTransactionsCtrl = account =>
 				transactions: account
 					.getTransactions()
 					.map(aTransaction => ({
-						timestamp: aTransaction.getDate().getTime(),
+						id: aTransaction.getId(),
 						type: aTransaction.getType(),
-						transactedQty: aTransaction.getTransactedQty(),
-						previousAccountMoney: aTransaction.getPreviousAccountMoney(),
-						resultingAccountMoney: aTransaction.getResultingAccountMoney()
+						ammount: aTransaction.getTransactedQty(),
+						effectiveDate: aTransaction.getDate().toString()
 					}))
 			})
 		)
